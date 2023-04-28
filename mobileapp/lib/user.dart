@@ -21,8 +21,9 @@ class _userState extends State<user> {
                   image: AssetImage("assets/background.jpg"),
                   fit: BoxFit.cover)),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(height: 50,)
+                      Text("this is another page")
                     ],
                   ),
         ),
