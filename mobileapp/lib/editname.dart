@@ -13,6 +13,7 @@ class _editnameState extends State<editname> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Builder(
           builder: (context) => Stack(
             children: [
@@ -59,6 +60,31 @@ class _editnameState extends State<editname> {
                           ),
                         )
                       ]),
+                ),
+              ),
+              Positioned(
+                top: 170,
+                left: 100,
+                child: GestureDetector(
+                  onTap: () {
+                    // เปลี่ยนภาพแต่ตอนนี้ยัง
+                  },
+                  child: ClipOval(
+                    child: Image.asset(
+                      "assets/aquacry.jpg",
+                      width: 200,
+                      height: 200,
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 400),
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: "Enter your name",
+                  ),
                 ),
               ),
             ],
