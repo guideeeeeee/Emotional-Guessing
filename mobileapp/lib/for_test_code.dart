@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(user());
+}
+
 class user extends StatefulWidget {
   const user({Key? key}) : super(key: key);
 
@@ -24,7 +28,8 @@ class _userState extends State<user> {
                         image: AssetImage("assets/background.jpg"),
                         fit: BoxFit.cover)),
                 child: Transform.translate(
-                  offset: Offset(0, MediaQuery.of(context).size.height * 0.2),
+                  offset: Offset(
+                      0, MediaQuery.of(context).size.height * 0.2),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -39,34 +44,27 @@ class _userState extends State<user> {
                               fontWeight: FontWeight.bold,
                               fontSize: 22),
                         ),
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Colors.pink), // change the color here
-                        ),
                       ),
                       SizedBox(height: 16),
                       ElevatedButton(
-                          onPressed: () {
-                            // link to ประวัติ
-                          },
-                          child: Text(
-                            "ประวัติการเล่น",
-                            style: TextStyle(
-                                fontFamily: 'FC Lamoon',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22),
-                          ),
-                          style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.pink),
-                          ))
+                        onPressed: () {
+                          // link to ประวัติ
+                        },
+                        child: Text(
+                          "ประวัติการเล่น",
+                          style: TextStyle(
+                              fontFamily: 'FC Lamoon',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22),
+                        ),
+                      )
                     ],
                   ),
                 ),
               ),
               Positioned(
                 top: 66,
-                right: 10,
+                right:10,
                 child: GestureDetector(
                   onTap: () {
                     // link to other page
