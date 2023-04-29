@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:mobileapp/editname.dart';
 class user extends StatefulWidget {
   const user({Key? key}) : super(key: key);
 
@@ -69,7 +69,10 @@ class _userState extends State<user> {
                 right: 10,
                 child: GestureDetector(
                   onTap: () {
-                    // link to other page
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => editname()),
+                    );
                   },
                   child: ClipOval(
                     child: Image.asset(
