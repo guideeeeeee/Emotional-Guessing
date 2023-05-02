@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/editname.dart';
+import 'package:mobileapp/record/record.dart';
 class user extends StatefulWidget {
   const user({Key? key}) : super(key: key);
 
@@ -47,7 +48,11 @@ class _userState extends State<user> {
                       SizedBox(height: 16),
                       ElevatedButton(
                           onPressed: () {
-                            // link to ประวัติ
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => record()),
+                            );
                           },
                           child: Text(
                             "ประวัติการเล่น",
