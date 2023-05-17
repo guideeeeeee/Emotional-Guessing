@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/editname.dart';
 import 'package:mobileapp/record/record.dart';
+import 'package:mobileapp/game/game.dart';
 class user extends StatefulWidget {
   const user({Key? key}) : super(key: key);
 
@@ -31,7 +32,11 @@ class _userState extends State<user> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          // link to game
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => game()),
+                            );
                         },
                         child: Text(
                           "เริ่มเกม",

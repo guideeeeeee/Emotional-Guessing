@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/game/gameover.dart';
 
 void main() {
-  runApp(user());
+  runApp(gameOver());
 }
 
 class user extends StatefulWidget {
