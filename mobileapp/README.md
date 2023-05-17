@@ -1,6 +1,6 @@
 # mobileapp
 
-A new Flutter project.
+โปรเจคนี้้เป็นโปรเจคจบปี1 ของวิชา CPE121 Mobile Application
 
 ## Getting Started
 
