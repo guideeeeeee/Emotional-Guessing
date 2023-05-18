@@ -32,7 +32,7 @@ class _userState extends State<user> {
                   offset: Offset(
                       0, MediaQuery.of(context).size.height * 0.2),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    //mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
                         onPressed: () {
