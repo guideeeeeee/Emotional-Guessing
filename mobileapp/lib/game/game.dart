@@ -8,9 +8,9 @@ class game extends StatefulWidget {
   @override
   State<game> createState() => _gameState();
 }
-
 //รอนายมาช่วยทำ
 class _gameState extends State<game> {
+  bool isOver = false;
   int timeLeft = 5;
   void StartCountDown() {
     Timer.periodic(Duration(seconds: 1), (timer) {
@@ -19,8 +19,10 @@ class _gameState extends State<game> {
           timeLeft--;
         });
       } else {
-        timer.cancel();
-        _gameOver();
+        setState(() {
+          timer.cancel();
+          isOver = true;
+        });
       }
     });
   }
@@ -55,16 +57,12 @@ class _gameState extends State<game> {
                       fontSize: 22),
                 )),
               ),
+              if (isOver) // Conditionally show the gameOver widget
+                gameOver(isOver: isOver),
             ],
           ),
         ),
       ),
-    );
-  }
-  void _gameOver() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => gameOver()),
     );
   }
 }

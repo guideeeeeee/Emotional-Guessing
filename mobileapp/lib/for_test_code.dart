@@ -1,45 +1,40 @@
 import 'dart:async';
-import 'package:mobileapp/game/gameover.dart';
 import 'package:flutter/material.dart';
-import 'package:mobileapp/game/game.dart';
+import 'package:mobileapp/game/gameover.dart';
+import 'package:flutter/scheduler.dart';
+
 void main() {
-  runApp(game());
+  runApp(game1());
 }
 
-class game extends StatefulWidget {
-  const game({Key? key});
-
+class game1 extends StatefulWidget {
+  const game1({Key? key});
   @override
-  State<game> createState() => _gameState();
+  State<game1> createState() => _gameState();
 }
 
-class _gameState extends State<game> {
+class _gameState extends State<game1> {
+  bool isOver = false;
   int timeLeft = 5;
-
-  @override
-  void initState() {
-    super.initState();
-    startCountDown();
-  }
-
-  void startCountDown() {
+  void StartCountDown() {
     Timer.periodic(Duration(seconds: 1), (timer) {
       if (timeLeft > 0) {
         setState(() {
           timeLeft--;
         });
       } else {
-        timer.cancel();
-        _gameOver();
+        setState(() {
+          timer.cancel();
+          isOver = true;
+        });
       }
     });
   }
 
-  void _gameOver() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => gameOver()),
-    );
+  @override
+  void initState() {
+    super.initState();
+    StartCountDown();
   }
 
   @override
@@ -54,22 +49,20 @@ class _gameState extends State<game> {
                 width: double.infinity,
                 height: double.infinity,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/background.jpg"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                    image: DecorationImage(
+                        image: AssetImage("assets/background.jpg"),
+                        fit: BoxFit.cover)),
                 child: Center(
-                  child: Text(
-                    timeLeft.toString(),
-                    style: TextStyle(
+                    child: Text(
+                  timeLeft.toString(),
+                  style: TextStyle(
                       fontFamily: 'FC Lamoon',
                       fontWeight: FontWeight.bold,
-                      fontSize: 22,
-                    ),
-                  ),
-                ),
+                      fontSize: 22),
+                )),
               ),
+              if (isOver) // Conditionally show the gameOver widget
+                gameOver(isOver: isOver),
             ],
           ),
         ),
@@ -77,4 +70,3 @@ class _gameState extends State<game> {
     );
   }
 }
-

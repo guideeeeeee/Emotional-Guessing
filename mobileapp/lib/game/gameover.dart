@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/user.dart';
-
-class gameOver extends StatefulWidget {
-  const gameOver({super.key});
-
-  @override
-  State<gameOver> createState() => _gameOverState();
-}
-
-class _gameOverState extends State<gameOver> {
+import 'package:mobileapp/game/game.dart';
+class gameOver extends StatelessWidget {
+  final bool isOver;
+  gameOver({required this.isOver});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return isOver ? MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Builder(
@@ -37,11 +32,11 @@ class _gameOverState extends State<gameOver> {
                     ),SizedBox(height: 200),
                     ElevatedButton(
                       onPressed: () {
-                        /*Navigator.pushReplacement(
+                        Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => game()),
-                            );*/
+                            );
                       },
                       child: Text(
                         "เริ่มใหม่",
@@ -81,6 +76,6 @@ class _gameOverState extends State<gameOver> {
           ),
         ),
       ),
-    );
+    ): Container();
   }
 }
