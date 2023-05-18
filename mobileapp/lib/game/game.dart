@@ -7,6 +7,7 @@ class game extends StatefulWidget {
   State<game> createState() => _gameState();
 }
 
+//รอนายมาช่วยทำ
 class _gameState extends State<game> {
   @override
   Widget build(BuildContext context) {
