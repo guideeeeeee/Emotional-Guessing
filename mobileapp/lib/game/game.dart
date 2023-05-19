@@ -12,6 +12,7 @@ class game extends StatefulWidget {
 class _gameState extends State<game> {
   bool isOver = false;
   int timeLeft = 5;
+  int GameScore = 0;
   void StartCountDown() {
     Timer.periodic(Duration(seconds: 1), (timer) {
       if (timeLeft > 0) {
@@ -58,7 +59,7 @@ class _gameState extends State<game> {
                 )),
               ),
               if (isOver) // Conditionally show the gameOver widget
-                gameOver(isOver: isOver),
+                gameOver(isOver: isOver, GameScore: GameScore,),
             ],
           ),
         ),

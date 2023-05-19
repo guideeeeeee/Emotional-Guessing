@@ -2,12 +2,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:mobileapp/game/gameover.dart';
 import 'package:flutter/scheduler.dart';
-
+import 'package:mobileapp/record/record.dart';
 void main() {
-  runApp(game1());
+  runApp(record());
 }
 
-class game1 extends StatefulWidget {
+/*class game1 extends StatefulWidget {
   const game1({Key? key});
   @override
   State<game1> createState() => _gameState();
@@ -69,4 +69,4 @@ class _gameState extends State<game1> {
       ),
     );
   }
-}
+}*/
