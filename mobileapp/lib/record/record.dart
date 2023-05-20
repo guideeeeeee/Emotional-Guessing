@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/record/provider/inforeplay.dart';
 import 'package:mobileapp/user.dart';
 
 class record extends StatefulWidget {
@@ -14,54 +15,68 @@ class _recordState extends State<record> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Builder(
-          builder: (context) => Stack(
-            children: [
-              Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/background.jpg"),
-                          fit: BoxFit.cover)),
-                  child: Transform.translate(
-                    offset: Offset(0, MediaQuery.of(context).size.height * 0.2),
-                    child: Column(
-                      children: [
-                        Text(
-                          "ประวัติการเล่น",
-                          style: TextStyle(
-                              fontFamily: 'FC Lamoon',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 72),
-                        ),
-                        SizedBox(
-                          height: 200,
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(builder: (context) => user()),
-                            );
-                          },
-                          child: Text(
-                            "ย้อนกลับ",
-                            style: TextStyle(
-                                fontFamily: 'FC Lamoon',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22),
-                          ),
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                Colors.pink), // change the color here
-                          ),
-                        ),
-                      ],
+        body: Stack(
+          children: [
+            Container(
+              width: double.infinity,
+              height: double.infinity,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/background.jpg"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Column(
+              children: [
+                Container(
+                  height: 150,
+                  child: Center(
+                    child: Text(
+                      "ประวัติการเล่น",
+                      style: TextStyle(
+                        fontFamily: 'FC Lamoon',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 56,
+                      ),
                     ),
-                  )),
-            ],
-          ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    color: Colors.deepPurple.shade100,
+                    child: SingleChildScrollView(
+                      child: Center(
+                        child: Column(
+                          children: [
+                            SizedBox(height: 20,),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 100,
+                  child: Center(
+                    child: Text("Back"),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

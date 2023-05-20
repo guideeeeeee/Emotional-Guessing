@@ -3,70 +3,87 @@ import 'package:flutter/material.dart';
 import 'package:mobileapp/game/gameover.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:mobileapp/record/record.dart';
+import 'package:mobileapp/record/provider/inforeplay.dart';
 void main() {
-  runApp(record());
+  runApp(Record());
 }
-
-/*class game1 extends StatefulWidget {
-  const game1({Key? key});
-  @override
-  State<game1> createState() => _gameState();
-}
-
-class _gameState extends State<game1> {
-  bool isOver = false;
-  int timeLeft = 5;
-  void StartCountDown() {
-    Timer.periodic(Duration(seconds: 1), (timer) {
-      if (timeLeft > 0) {
-        setState(() {
-          timeLeft--;
-        });
-      } else {
-        setState(() {
-          timer.cancel();
-          isOver = true;
-        });
-      }
-    });
-  }
+class Record extends StatefulWidget {
+  const Record({Key? key}) : super(key: key);
 
   @override
-  void initState() {
-    super.initState();
-    StartCountDown();
-  }
+  _RecordState createState() => _RecordState();
+}
 
+class _RecordState extends State<Record> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Builder(
-          builder: (context) => Stack(
-            children: [
-              Container(
-                width: double.infinity,
-                height: double.infinity,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/background.jpg"),
-                        fit: BoxFit.cover)),
-                child: Center(
-                    child: Text(
-                  timeLeft.toString(),
-                  style: TextStyle(
-                      fontFamily: 'FC Lamoon',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22),
-                )),
+        body: Stack(
+          children: [
+            Container(
+              width: double.infinity,
+              height: double.infinity,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/background.jpg"),
+                  fit: BoxFit.cover,
+                ),
               ),
-              if (isOver) // Conditionally show the gameOver widget
-                gameOver(isOver: isOver),
-            ],
-          ),
+            ),
+            Column(
+              children: [
+                Container(
+                  height: 150,
+                  child: Center(
+                    child: Text(
+                      "ประวัติการเล่น",
+                      style: TextStyle(
+                        fontFamily: 'FC Lamoon',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 56,
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    color: Colors.deepPurple.shade100,
+                    child: SingleChildScrollView(
+                      child: Center(
+                        child: Column(
+                          children: [
+                            SizedBox(height: 20,),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                            info(name: "guide", score: "20", date: DateTime.now()),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 100,
+                  child: Center(
+                    child: Text("Back"),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
   }
-}*/
+}
