@@ -52,7 +52,6 @@ class _attentionState extends State<attention> {
           timer.cancel();
         }
       });
-      
     });
   }
   bool _visible = false;
