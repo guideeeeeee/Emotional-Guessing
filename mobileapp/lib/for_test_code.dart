@@ -1,87 +1,114 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:mobileapp/game/gameover.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:mobileapp/record/record.dart';
-import 'package:mobileapp/record/provider/inforeplay.dart';
+import 'package:mobileapp/user.dart';
+
 void main() {
-  runApp(Record());
+  runApp(editname());
 }
-class Record extends StatefulWidget {
-  const Record({Key? key}) : super(key: key);
 
+class editname extends StatefulWidget {
   @override
-  _RecordState createState() => _RecordState();
+  State<editname> createState() => _editnameState();
 }
 
-class _RecordState extends State<Record> {
+class _editnameState extends State<editname> {
+  final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Stack(
-          children: [
-            Container(
-              width: double.infinity,
-              height: double.infinity,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/background.jpg"),
-                  fit: BoxFit.cover,
+        resizeToAvoidBottomInset: false,
+        body: Builder(
+          builder: (context) => Stack(
+            children: [
+              Container(
+                width: double.infinity,
+                height: double.infinity,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/background.jpg"),
+                        fit: BoxFit.cover)),
+              ),
+              Positioned(
+                top: 170,
+                left: 100,
+                child: GestureDetector(
+                  onTap: () {
+                    // เปลี่ยนภาพแต่ตอนนี้ยัง
+                  },
+                  child: ClipOval(
+                    child: Image.asset(
+                      "assets/aquacry.jpg",
+                      width: 200,
+                      height: 200,
+                    ),
+                  ),
                 ),
               ),
-            ),
-            Column(
-              children: [
-                Container(
-                  height: 150,
-                  child: Center(
-                    child: Text(
-                      "ประวัติการเล่น",
-                      style: TextStyle(
-                        fontFamily: 'FC Lamoon',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 56,
+              Container(
+                margin: EdgeInsets.only(top: 400),
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        /*validator: (String str){
+                          if (str.isEmpty){
+                            return "กรุณาใส่ชื่อ";
+                          }
+                          return null;
+                        },*/
                       ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    color: Colors.deepPurple.shade100,
-                    child: SingleChildScrollView(
-                      child: Center(
-                        child: Column(
-                          children: [
-                            SizedBox(height: 20,),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                          ],
-                        ),
+                      SizedBox(
+                        height: 10,
                       ),
-                    ),
+                      Row(
+                        children: [
+                          SizedBox(width: 55),
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => user()),
+                            );
+                            },
+                            child: Text(
+                              "ยกเลิก",
+                              style: TextStyle(
+                                  fontFamily: 'FC Lamoon',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 22),
+                            ),
+                          ),
+                          SizedBox(width: 70),
+                          ElevatedButton(
+                            onPressed: () {
+                              /*if(formKey.currentState.validate()){
+                                Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => user()),
+                            );
+                              }*/
+                            },
+                            child: Text(
+                              "ยืนยัน",
+                              style: TextStyle(
+                                  fontFamily: 'FC Lamoon',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 22),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
                   ),
                 ),
-                Container(
-                  height: 100,
-                  child: Center(
-                    child: Text("Back"),
-                  ),
-                ),
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );
