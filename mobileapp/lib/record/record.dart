@@ -44,7 +44,6 @@ class _recordState extends State<record> {
                 ),
                 Expanded(
                   child: Container(
-                    color: Colors.deepPurple.shade100,
                     child: SingleChildScrollView(
                       child: Center(
                         child: Column(
@@ -71,7 +70,26 @@ class _recordState extends State<record> {
                 Container(
                   height: 100,
                   child: Center(
-                    child: Text("Back"),
+                    child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => user()),
+                                    );
+                                  },
+                                  child: Text(
+                                    "กลับหน้าหลัก",
+                                    style: TextStyle(
+                                        fontFamily: 'FC Lamoon',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 22),
+                                  ),
+                                  style: ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.pink),
+                                  )),
                   ),
                 ),
               ],

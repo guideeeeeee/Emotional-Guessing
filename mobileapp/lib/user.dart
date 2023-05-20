@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobileapp/editname.dart';
+import 'package:mobileapp/proflie/editname.dart';
 import 'package:mobileapp/record/record.dart';
 import 'package:mobileapp/game/game.dart';
 class user extends StatefulWidget {
