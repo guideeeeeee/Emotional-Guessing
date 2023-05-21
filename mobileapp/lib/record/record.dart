@@ -48,19 +48,9 @@ class _recordState extends State<record> {
                       child: Center(
                         child: Column(
                           children: [
+                            //ประวัติ
                             SizedBox(height: 20,),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
-                            info(name: "guide", score: "20", date: DateTime.now()),
+                            
                           ],
                         ),
                       ),

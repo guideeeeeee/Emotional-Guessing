@@ -1,13 +1,14 @@
 import "package:flutter/material.dart";
 import 'package:mobileapp/user.dart';
-class editname extends StatefulWidget {
-  const editname({super.key});
 
+class editname extends StatefulWidget {
   @override
   State<editname> createState() => _editnameState();
 }
 
 class _editnameState extends State<editname> {
+  final formKey = GlobalKey<FormState>();
+  final nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,43 +25,6 @@ class _editnameState extends State<editname> {
                     image: DecorationImage(
                         image: AssetImage("assets/background.jpg"),
                         fit: BoxFit.cover)),
-                child: Transform.translate(
-                  offset: Offset(0, MediaQuery.of(context).size.height * 0.2),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(builder: (context) => user()),
-                            );
-                          },
-                          child: Text(
-                            "ยกเลิก",
-                            style: TextStyle(
-                                fontFamily: 'FC Lamoon',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22),
-                          ),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(builder: (context) => user()),
-                            );
-                          },
-                          child: Text(
-                            "ยืนยัน",
-                            style: TextStyle(
-                                fontFamily: 'FC Lamoon',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22),
-                          ),
-                        )
-                      ]),
-                ),
               ),
               Positioned(
                 top: 170,
@@ -81,9 +45,69 @@ class _editnameState extends State<editname> {
               Container(
                 margin: EdgeInsets.only(top: 400),
                 padding: EdgeInsets.symmetric(horizontal: 30),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Enter your name",
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        decoration:
+                        new InputDecoration(labelText: "ชื่อผู้เล่นใหม่"),
+                        controller: nameController,
+                        style: TextStyle(
+                            fontFamily: 'FC Lamoon',
+                            fontWeight: FontWeight.normal),
+                        validator: (value) {
+                          if (value!.isEmpty)
+                            return "โปรดระบุชื่อผู้เล่นใหม่";
+                          else
+                            return null;
+                        },
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          SizedBox(width: 55),
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(builder: (context) => user()),
+                              );
+                            },
+                            child: Text(
+                              "ยกเลิก",
+                              style: TextStyle(
+                                  fontFamily: 'FC Lamoon',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 22),
+                            ),
+                          ),
+                          SizedBox(width: 70),
+                          ElevatedButton(
+                            onPressed: () {
+                              if (formKey.currentState!.validate()) {
+                                var newname = nameController.text;
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    
+                                      builder: (context) => user()),
+                                );
+                              }
+                            },
+                            child: Text(
+                              "ยืนยัน",
+                              style: TextStyle(
+                                  fontFamily: 'FC Lamoon',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 22),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
                   ),
                 ),
               ),

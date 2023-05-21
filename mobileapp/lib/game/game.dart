@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:mobileapp/game/gameover.dart';
+import 'package:mobileapp/record/model/replayModel.dart';
+import 'package:mobileapp/record/provider/inforeplay.dart';
+import 'package:mobileapp/record/provider/replay.dart';
 
 class game extends StatefulWidget {
   const game({super.key});
@@ -8,11 +11,13 @@ class game extends StatefulWidget {
   @override
   State<game> createState() => _gameState();
 }
+
 //รอนายมาช่วยทำ
 class _gameState extends State<game> {
   bool isOver = false;
   int timeLeft = 5;
   int GameScore = 0;
+
   void StartCountDown() {
     Timer.periodic(Duration(seconds: 1), (timer) {
       if (timeLeft > 0) {
@@ -23,6 +28,7 @@ class _gameState extends State<game> {
         setState(() {
           timer.cancel();
           isOver = true;
+          replayModel(score: GameScore, dateandTime: DateTime.now());
         });
       }
     });
@@ -49,6 +55,7 @@ class _gameState extends State<game> {
                     image: DecorationImage(
                         image: AssetImage("assets/background.jpg"),
                         fit: BoxFit.cover)),
+                //part game here
                 child: Center(
                     child: Text(
                   timeLeft.toString(),
@@ -58,8 +65,11 @@ class _gameState extends State<game> {
                       fontSize: 22),
                 )),
               ),
-              if (isOver) // Conditionally show the gameOver widget
-                gameOver(isOver: isOver, GameScore: GameScore,),
+              if (isOver) 
+                gameOver(
+                  isOver: isOver,
+                  GameScore: GameScore,
+                ),
             ],
           ),
         ),

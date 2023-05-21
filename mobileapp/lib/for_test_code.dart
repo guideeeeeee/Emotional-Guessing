@@ -55,12 +55,17 @@ class _editnameState extends State<editname> {
                   child: Column(
                     children: [
                       TextFormField(
-                        /*validator: (String str){
-                          if (str.isEmpty){
-                            return "กรุณาใส่ชื่อ";
-                          }
-                          return null;
-                        },*/
+                        decoration:
+                            new InputDecoration(labelText: "ชื่อผู้เล่นใหม่"),
+                        style: TextStyle(
+                            fontFamily: 'FC Lamoon',
+                            fontWeight: FontWeight.normal),
+                        validator: (value) {
+                          if (value!.isEmpty)
+                            return "โปรดระบุชื่อผู้เล่นใหม่";
+                          else
+                            return null;
+                        },
                       ),
                       SizedBox(
                         height: 10,
@@ -71,9 +76,9 @@ class _editnameState extends State<editname> {
                           ElevatedButton(
                             onPressed: () {
                               Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(builder: (context) => user()),
-                            );
+                                context,
+                                MaterialPageRoute(builder: (context) => user()),
+                              );
                             },
                             child: Text(
                               "ยกเลิก",
@@ -86,12 +91,12 @@ class _editnameState extends State<editname> {
                           SizedBox(width: 70),
                           ElevatedButton(
                             onPressed: () {
-                              /*if(formKey.currentState.validate()){
+                              if(formKey.currentState!.validate()){
                                 Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(builder: (context) => user()),
                             );
-                              }*/
+                              }
                             },
                             child: Text(
                               "ยืนยัน",

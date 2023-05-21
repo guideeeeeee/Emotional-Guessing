@@ -43,7 +43,10 @@ class gameOver extends StatelessWidget {
                                     fontSize: 42),
                               ),
                               SizedBox(height: 150),
-                              ElevatedButton(
+                              Row(
+                                children: [
+                                  SizedBox(width: 90,),
+                                  ElevatedButton(
                                 onPressed: () {
                                   Navigator.pushReplacement(
                                     context,
@@ -64,7 +67,7 @@ class gameOver extends StatelessWidget {
                                           Colors.pink), // change the color here
                                 ),
                               ),
-                              SizedBox(height: 20),
+                              SizedBox(width: 20),
                               ElevatedButton(
                                   onPressed: () {
                                     Navigator.pushReplacement(
@@ -85,6 +88,8 @@ class gameOver extends StatelessWidget {
                                         MaterialStateProperty.all<Color>(
                                             Colors.pink),
                                   ))
+                                ],
+                              )
                             ],
                           ),
                         )),
