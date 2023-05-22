@@ -8,8 +8,10 @@ class replay with ChangeNotifier{
   List<replayModel> getReplay(){
     return replays;
   }
+  
 
   void addReplay(replayModel newReplay){
     replays.add(newReplay);
+    notifyListeners();
   }
 }

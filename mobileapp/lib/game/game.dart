@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:mobileapp/game/gameover.dart';
 import 'package:mobileapp/record/model/replayModel.dart';
-import 'package:mobileapp/record/provider/inforeplay.dart';
 import 'package:mobileapp/record/provider/replay.dart';
+import 'package:provider/provider.dart';
 
 class game extends StatefulWidget {
   const game({super.key});
@@ -26,9 +26,14 @@ class _gameState extends State<game> {
         });
       } else {
         setState(() {
+          replayModel newReplay = replayModel(
+            score: GameScore,
+            dateandTime: DateTime.now(),
+          );
+          var proreplay = Provider.of<replay>(context, listen: false);
+          proreplay.addReplay(newReplay); 
           timer.cancel();
           isOver = true;
-          replayModel(score: GameScore, dateandTime: DateTime.now());
         });
       }
     });
@@ -65,7 +70,7 @@ class _gameState extends State<game> {
                       fontSize: 22),
                 )),
               ),
-              if (isOver) 
+              if (isOver)
                 gameOver(
                   isOver: isOver,
                   GameScore: GameScore,
