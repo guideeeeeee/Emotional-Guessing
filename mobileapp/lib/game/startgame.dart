@@ -10,13 +10,13 @@ class startgame extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<replay>.value(
-          value: replay(), // สร้าง instance ของ Replay
-        ),
+        ChangeNotifierProvider(create: (context){
+          return replay();
+        })
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: game(),
+        home: const game(),
       ),
     );
   }

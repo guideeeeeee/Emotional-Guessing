@@ -51,13 +51,12 @@ class _recordState extends State<record> {
                     ),
                   ),
                   Expanded(child:
-                      Consumer<replay>(builder: (context, replay, _)  {
-                        List<replayModel> replays = replay.getReplay();
-                    var count = replay.replays.length;
+                      Consumer<replay>(builder: (context, replay rec, _)  {
+                    var count = rec.replays.length;
                     if (count <= 0) { 
                       return Center(
                         child: Text(
-                          "$count",
+                          "ไม่มีประวัติการเล่น",
                           style: TextStyle(
                             fontFamily: 'FC Lamoon',
                             fontWeight: FontWeight.bold,
@@ -69,16 +68,29 @@ class _recordState extends State<record> {
                       return ListView.builder(
                           itemCount: count,
                           itemBuilder: (context, int index) {
-                            replayModel replayAll = replay.replays[index];
-                            return Container(
+                            replayModel replayAll = rec.replays[index];
+                            return Card(
+                    elevation: 5,
+                    margin:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+                    child: ListTile(
+                      leading: CircleAvatar(
+                          child: FittedBox(
+                        child: Text(replayAll.score.toString()),
+                      )),
+                      title: Text("Guest123"),
+                      subtitle: Text(replayAll.dateandTime.toString()),
+                    ),
+                  );/*Container(
                               child: Center(
                                 child: Column(
                                   children: [
-                                    Text(replays.toString()),
+                                    Text(replayAll.score.toString()),
+                                    Text(replayAll.dateandTime.toString())
                                   ],
                                 ),
                               ),
-                            );
+                            );*/
                           });
                     }
                   })),

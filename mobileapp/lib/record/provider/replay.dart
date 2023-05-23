@@ -3,7 +3,11 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:mobileapp/record/model/replayModel.dart';
 class replay with ChangeNotifier{
-  List<replayModel> replays =[];
+  List<replayModel> replays =[
+    replayModel(1,DateTime.now()),
+    replayModel(2, DateTime.now()),
+    replayModel(3,DateTime.now()),
+  ];
 
   List<replayModel> getReplay(){
     return replays;

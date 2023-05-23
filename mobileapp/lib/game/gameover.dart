@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/user.dart';
 import 'package:mobileapp/game/game.dart';
+import 'package:provider/provider.dart';
+import '../record/model/replayModel.dart';
+import '../record/provider/replay.dart';
 
 class gameOver extends StatelessWidget {
   final bool isOver;
   final int GameScore;
   gameOver({required this.isOver, required this.GameScore});
+
+  
   @override
   Widget build(BuildContext context) {
     return isOver

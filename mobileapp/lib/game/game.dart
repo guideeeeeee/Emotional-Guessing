@@ -27,11 +27,13 @@ class _gameState extends State<game> {
       } else {
         setState(() {
           replayModel newReplay = replayModel(
-            score: GameScore,
-            dateandTime: DateTime.now(),
+            GameScore,
+           DateTime.now(),
           );
           var proreplay = Provider.of<replay>(context, listen: false);
           proreplay.addReplay(newReplay); 
+          print(newReplay.score);
+          print(newReplay.dateandTime);
           timer.cancel();
           isOver = true;
         });
