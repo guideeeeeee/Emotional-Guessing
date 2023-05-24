@@ -72,6 +72,7 @@ class _recordState extends State<record> {
                         const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
                     child: ListTile(
                       leading: CircleAvatar(
+                        backgroundColor: Colors.lightGreen[400],
                           child: FittedBox(
                         child: Text(replayAll.score.toString()),
                       )),
