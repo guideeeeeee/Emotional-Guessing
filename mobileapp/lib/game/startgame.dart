@@ -4,19 +4,14 @@ import 'package:mobileapp/record/provider/replay.dart';
 import 'package:mobileapp/game/game.dart';
 
 class startgame extends StatelessWidget {
-  const startgame({super.key});
+  const startgame({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context){
-          return replay();
-        })
-      ],
+    return ChangeNotifierProvider(create: (context) => replay(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const game(),
+        home: game(),
       ),
     );
   }

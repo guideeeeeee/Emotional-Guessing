@@ -32,8 +32,7 @@ class _gameState extends State<game> {
           );
           var proreplay = Provider.of<replay>(context, listen: false);
           proreplay.addReplay(newReplay); 
-          print(newReplay.score);
-          print(newReplay.dateandTime);
+          print(proreplay.replays.length);
           timer.cancel();
           isOver = true;
         });

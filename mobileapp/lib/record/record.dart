@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'model/replayModel.dart';
 
 class record extends StatefulWidget {
-  const record({super.key});
+  const record({Key? key});
 
   @override
   State<record> createState() => _recordState();
@@ -14,13 +14,9 @@ class record extends StatefulWidget {
 class _recordState extends State<record> {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) {
-          return replay();
-        })
-      ],
-      child: MaterialApp(
+    final replayProvider = Provider.of<replay>(context);
+    print(replayProvider.replays.length);
+    return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           body: Stack(
@@ -51,8 +47,8 @@ class _recordState extends State<record> {
                     ),
                   ),
                   Expanded(child:
-                      Consumer<replay>(builder: (context, replay rec, _)  {
-                    var count = rec.replays.length;
+                      Consumer<replay>(builder: (context, replayProvider, _)  {
+                    var count = replayProvider.replays.length;
                     if (count <= 0) { 
                       return Center(
                         child: Text(
@@ -68,7 +64,8 @@ class _recordState extends State<record> {
                       return ListView.builder(
                           itemCount: count,
                           itemBuilder: (context, int index) {
-                            replayModel replayAll = rec.replays[index];
+                            replayModel replayAll = replayProvider.replays[index];
+                            print(index);
                             return Card(
                     elevation: 5,
                     margin:
@@ -122,7 +119,6 @@ class _recordState extends State<record> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
