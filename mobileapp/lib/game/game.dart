@@ -58,9 +58,7 @@ class _gameState extends State<game> {
                 width: double.infinity,
                 height: double.infinity,
                 decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/background.jpg"),
-                        fit: BoxFit.cover)),
+                    color: Color.fromARGB(255, 85, 200, 186)),
                 //part game here
                 child: Center(
                     child: Text(

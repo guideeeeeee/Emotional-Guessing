@@ -25,9 +25,7 @@ class gameOver extends StatelessWidget {
                         width: double.infinity,
                         height: double.infinity,
                         decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("assets/background.jpg"),
-                                fit: BoxFit.cover)),
+                            color: Color.fromARGB(255, 85, 200, 186)),
                         child: Transform.translate(
                           offset: Offset(
                               0, MediaQuery.of(context).size.height * 0.2),

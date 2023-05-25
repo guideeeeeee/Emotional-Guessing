@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/proflie/editname.dart';
+import 'package:mobileapp/proflie/editname2.dart';
 import 'package:mobileapp/record/record.dart';
 
 import 'game/startgame.dart';
@@ -23,9 +24,7 @@ class _userState extends State<user> {
                 width: double.infinity,
                 height: double.infinity,
                 decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/background.jpg"),
-                        fit: BoxFit.cover)),
+                    color:  Color.fromARGB(255, 174, 242, 252)),
                 child: Transform.translate(
                   offset: Offset(0, MediaQuery.of(context).size.height * 0.2),
                   child: Column(
@@ -82,12 +81,12 @@ class _userState extends State<user> {
                   onTap: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => editname()),
+                      MaterialPageRoute(builder: (context) => EditUser()),
                     );
                   },
                   child: ClipOval(
                     child: Image.asset(
-                      "assets/aquacry.jpg",
+                      "image/w.png",
                       width: 50,
                       height: 50,
                     ),

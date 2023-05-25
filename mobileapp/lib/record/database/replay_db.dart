@@ -45,4 +45,10 @@ class ReplayDB{
     }
     return dataReplay;
   }
+  Future deleteData() async {
+  var db = await openDatabase();
+  var store = intMapStoreFactory.store("expense");
+  await store.delete(db);
+  db.close();
+}
 }
