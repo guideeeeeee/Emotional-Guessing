@@ -1,6 +1,7 @@
 class replayModel{
+  //String name;
   int score;
   DateTime dateandTime;
 
-  replayModel(this.score,this.dateandTime);
+  replayModel(/*this.name,*/this.score,this.dateandTime);
 }

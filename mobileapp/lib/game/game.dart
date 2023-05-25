@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:mobileapp/game/gameover.dart';
+import 'package:mobileapp/proflie/PlayerName.dart';
+import 'package:mobileapp/record/database/PlayerName_db.dart';
 import 'package:mobileapp/record/model/replayModel.dart';
 import 'package:mobileapp/record/provider/replay.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +28,9 @@ class _gameState extends State<game> {
         });
       } else {
         setState(() {
+          //var proviname = Provider.of<PlayerName>(context, listen: false);
           replayModel newReplay = replayModel(
+            /*proviname.getPlayerName().toString(),*/
             GameScore,
            DateTime.now(),
           );

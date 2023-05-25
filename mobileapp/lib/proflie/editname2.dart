@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/proflie/PlayerName.dart';
+import 'package:provider/provider.dart';
+import '../record/database/PlayerName_db.dart';
 import '../user.dart';
 
 class CustomClipPath extends CustomClipper<Path> {
@@ -32,7 +35,6 @@ class _EditUserState extends State<EditUser> {
   final formKey = GlobalKey<FormState>();
   final nameController = TextEditingController();
   bool isCircleTransformed = false;
-
   @override
   void dispose() {
     nameController.dispose();
@@ -51,29 +53,28 @@ class _EditUserState extends State<EditUser> {
             left: 0,
             right: 0,
             child: Center(
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Color.fromARGB(255, 85, 200, 186),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color.fromARGB(255, 115, 122, 124),
-                        blurRadius: 15,
-                        offset: Offset(0, 3),
-                      ),
-                    ],
-                  ),
-                  child: Text(
-                    'สร้างตัวละคร',
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(246, 56, 113, 199),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: Color.fromARGB(255, 85, 200, 186),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromARGB(255, 115, 122, 124),
+                      blurRadius: 15,
+                      offset: Offset(0, 3),
                     ),
+                  ],
+                ),
+                child: Text(
+                  'สร้างตัวละคร',
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(246, 56, 113, 199),
                   ),
                 ),
-            
+              ),
             ),
           ),
           Center(
@@ -103,17 +104,18 @@ class _EditUserState extends State<EditUser> {
                       ],
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: /*UserPic.getPic()
-                          ? */Image.asset(
-                              'image/m.png',
-                              height: 200,
-                            )
-                          /*: Image.asset(
+                        padding: const EdgeInsets.all(5.0),
+                        child: /*UserPic.getPic()
+                          ? */
+                            Image.asset(
+                          'image/m.png',
+                          height: 200,
+                        )
+                        /*: Image.asset(
                               'image/w.png',
                               height: 200,
                             ),*/
-                    ),
+                        ),
                   ),
                 ),
                 SizedBox(height: 10),
@@ -176,9 +178,9 @@ class _EditUserState extends State<EditUser> {
             child: FloatingActionButton(
               onPressed: () {
                 Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => user()),
-          );
+                  context,
+                  MaterialPageRoute(builder: (context) => user()),
+                );
               },
               child: Icon(Icons.close),
             ),
@@ -190,10 +192,14 @@ class _EditUserState extends State<EditUser> {
           if (formKey.currentState!.validate()) {
             String userName = nameController.text;
             print('ชื่อผู้ใช้: $userName');
+            var playerNameProvider =
+                Provider.of<PlayerName>(context, listen: false);
+            playerNameProvider.savePlayerName(userName);
+            //add name
             Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => user()),
-          );
+              context,
+              MaterialPageRoute(builder: (context) => user()),
+            );
             //TODO
           }
         },

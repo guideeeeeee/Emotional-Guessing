@@ -6,10 +6,11 @@ import 'package:sembast/sembast.dart';
 import 'package:sembast/sembast_io.dart';
 
 import '../model/replayModel.dart';
-class ReplayDB{
+
+class ReplayDB {
   String dbReplay;
   ReplayDB(this.dbReplay);
-  Future<Database> openDatabase() async{
+  Future<Database> openDatabase() async {
     Directory appDirectory = await getApplicationDocumentsDirectory();
     String dbLocation = join(appDirectory.path, dbReplay);
     DatabaseFactory dbFactory = databaseFactoryIo;
@@ -17,9 +18,9 @@ class ReplayDB{
     return db;
   }
 
-  Future<int> InsertData(replayModel statement) async{
+  Future<int> InsertData(replayModel statement) async {
     var db = await this.openDatabase();
-    var store = intMapStoreFactory.store("expense");
+    var store = intMapStoreFactory.store("expense1");
 
     //json
     var records = {
@@ -35,20 +36,21 @@ class ReplayDB{
 //เก่าไปใหม่ true
   Future<List<replayModel>> loadAllData() async {
     var db = await this.openDatabase();
-    var store = intMapStoreFactory.store("expense");
-    var records = await store.find(db,finder: Finder(sortOrders: [SortOrder(Field.key,false)]));
+    var store = intMapStoreFactory.store("expense1");
+    var records = await store.find(db,
+        finder: Finder(sortOrders: [SortOrder(Field.key, false)]));
     List<replayModel> dataReplay = [];
     for (var record in records) {
-      dataReplay.add(replayModel(
-          record["score"] as int,
-          DateTime.parse(record["date"] as String)));
+      dataReplay.add(replayModel(/*record["name"] as String,*/
+          record["score"] as int, DateTime.parse(record["date"] as String)));
     }
     return dataReplay;
   }
+
   Future deleteData() async {
-  var db = await openDatabase();
-  var store = intMapStoreFactory.store("expense");
-  await store.delete(db);
-  db.close();
-}
+    var db = await openDatabase();
+    var store = intMapStoreFactory.store("expense1");
+    await store.delete(db);
+    db.close();
+  }
 }

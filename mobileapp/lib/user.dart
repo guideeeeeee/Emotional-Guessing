@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/proflie/PlayerName.dart';
 import 'package:mobileapp/proflie/editname.dart';
 import 'package:mobileapp/proflie/editname2.dart';
+import 'package:mobileapp/record/provider/replay.dart';
 import 'package:mobileapp/record/record.dart';
+import 'package:provider/provider.dart';
 
 import 'game/startgame.dart';
 class user extends StatefulWidget {
@@ -14,86 +17,92 @@ class user extends StatefulWidget {
 class _userState extends State<user> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Builder(
-          builder: (context) => Stack(
-            children: [
-              Container(
-                width: double.infinity,
-                height: double.infinity,
-                decoration: BoxDecoration(
-                    color:  Color.fromARGB(255, 174, 242, 252)),
-                child: Transform.translate(
-                  offset: Offset(0, MediaQuery.of(context).size.height * 0.2),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => startgame()),
-                            );
-                        },
-                        child: Text(
-                          "เริ่มเกม",
-                          style: TextStyle(
-                              fontFamily: 'FC Lamoon',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 22),
-                        ),
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Colors.pink), // change the color here
-                        ),
-                      ),
-                      SizedBox(height: 16),
-                      ElevatedButton(
+    return  MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => replay()),
+        //ChangeNotifierProvider(create: (context) => PlayerName('yourname')),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          body: Builder(
+            builder: (context) => Stack(
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                      color:  Color.fromARGB(255, 174, 242, 252)),
+                  child: Transform.translate(
+                    offset: Offset(0, MediaQuery.of(context).size.height * 0.2),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
                           onPressed: () {
                             Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => record()),
-                            );
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => startgame()),
+                              );
                           },
                           child: Text(
-                            "ประวัติการเล่น",
+                            "เริ่มเกม",
                             style: TextStyle(
                                 fontFamily: 'FC Lamoon',
                                 fontWeight: FontWeight.bold,
                                 fontSize: 22),
                           ),
                           style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.pink),
-                          ))
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                top: 66,
-                right: 10,
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => EditUser()),
-                    );
-                  },
-                  child: ClipOval(
-                    child: Image.asset(
-                      "image/w.png",
-                      width: 50,
-                      height: 50,
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                Colors.pink), // change the color here
+                          ),
+                        ),
+                        SizedBox(height: 16),
+                        ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => record()),
+                              );
+                            },
+                            child: Text(
+                              "ประวัติการเล่น",
+                              style: TextStyle(
+                                  fontFamily: 'FC Lamoon',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 22),
+                            ),
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all<Color>(Colors.pink),
+                            ))
+                      ],
                     ),
                   ),
                 ),
-              ),
-            ],
+                Positioned(
+                  top: 66,
+                  right: 10,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => EditUser()),
+                      );
+                    },
+                    child: ClipOval(
+                      child: Image.asset(
+                        "image/w.png",
+                        width: 50,
+                        height: 50,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
