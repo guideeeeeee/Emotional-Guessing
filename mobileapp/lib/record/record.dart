@@ -30,7 +30,7 @@ class _recordState extends State<record> {
               width: double.infinity,
               height: double.infinity,
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 85, 200, 186)
+                color: Color.fromARGB(255, 174, 242, 252),
               ),
             ),
             Column(
@@ -68,28 +68,20 @@ class _recordState extends State<record> {
                         itemBuilder: (context, int index) {
                           replayModel replayAll = replayProvider.replays[index];
                           return Card(
+                            color: Colors.pink,
                             elevation: 5,
                             margin: const EdgeInsets.symmetric(
                                 vertical: 8, horizontal: 5),
                             child: ListTile(
                               leading: CircleAvatar(
-                                  backgroundColor: Colors.lightGreen[400],
+                                  backgroundColor: Colors.white,
                                   child: FittedBox(
-                                    child: Text(replayAll.score.toString()),
+                                    child: Text(replayAll.score.toString(),style: TextStyle(color: Colors.black),),
                                   )),
-                              title: Text("replayAll.name"),
-                              subtitle: Text(replayAll.dateandTime.toString()),
+                              title: Text(replayAll.name,style: TextStyle(color: Colors.white)),
+                              subtitle: Text(replayAll.dateandTime.toString(),style: TextStyle(color: Colors.white)),
                             ),
-                          ); /*Container(
-                              child: Center(
-                                child: Column(
-                                  children: [
-                                    Text(replayAll.score.toString()),
-                                    Text(replayAll.dateandTime.toString())
-                                  ],
-                                ),
-                              ),
-                            );*/
+                          ); 
                         });
                   }
                 })),

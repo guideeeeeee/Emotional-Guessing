@@ -71,7 +71,8 @@ class _EditUserState extends State<EditUser> {
                   child: Text(
                     'สร้างตัวละคร',
                     style: TextStyle(
-                      fontSize: 40,
+                      fontFamily: 'FC Lamoon',
+                      fontSize: 48,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(246, 56, 113, 199),
                     ),
@@ -143,7 +144,8 @@ class _EditUserState extends State<EditUser> {
                         decoration: InputDecoration(
                           labelText: 'ชื่อ',
                           labelStyle: TextStyle(
-                            fontSize: 20,
+                            fontFamily: 'FC Lamoon',
+                            fontSize: 26,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
@@ -178,6 +180,7 @@ class _EditUserState extends State<EditUser> {
               left: 16,
               bottom: 16,
               child: FloatingActionButton(
+                heroTag: 'hero2',
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
@@ -190,6 +193,7 @@ class _EditUserState extends State<EditUser> {
           ],
         ),
         floatingActionButton: FloatingActionButton(
+          heroTag: 'hero1',
           onPressed: () {
             if (formKey.currentState!.validate()) {
               String userName = nameController.text;

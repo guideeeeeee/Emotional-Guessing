@@ -19,28 +19,31 @@ class _gameState extends State<game> {
   bool isOver = false;
   int timeLeft = 5;
   int GameScore = 0;
-
-  void StartCountDown() {
-    Timer.periodic(Duration(seconds: 1), (timer) {
-      if (timeLeft > 0) {
-        setState(() {
-          timeLeft--;
-        });
-      } else {
-        setState(() {
-          replayModel newReplay = replayModel(
-            GameScore,
-           DateTime.now(),
-          );
-          var proreplay = Provider.of<replay>(context, listen: false);
-          proreplay.addReplay(newReplay); 
-          print(proreplay.replays.length);
-          timer.cancel();
-          isOver = true;
-        });
-      }
-    });
-  }
+void StartCountDown() {
+  Timer.periodic(Duration(seconds: 1), (timer) async {
+    if (timeLeft > 0) {
+      setState(() {
+        timeLeft--;
+      });
+    } else {
+      // var Gamename = context.read<PlayerName>();
+      // var playerNameMap = await Gamename.getPlayerName();
+      // var ThisPlayerName= playerNameMap!['name']as String;
+      setState(() {
+        replayModel newReplay = replayModel(
+          "Name",
+          GameScore,
+          DateTime.now(),
+        );
+        var proreplay = Provider.of<replay>(context, listen: false);
+        proreplay.addReplay(newReplay); 
+        print(proreplay.replays.length);
+        timer.cancel();
+        isOver = true;
+      });
+    }
+  });
+}
 
   @override
   void initState() {

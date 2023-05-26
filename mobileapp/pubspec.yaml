@@ -79,6 +79,9 @@ flutter:
     - assets/aquacry.jpg
     - image/m.png
     - image/w.png
+    - image/logoonscreenNOBG.png
+    - image/again2.png
+    - image/backtohome2.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
@@ -102,6 +105,9 @@ flutter:
         - asset: fonts/FC Lamoon Light ver 1.00.otf
         - asset: fonts/FC Lamoon Regular Italic ver 1.00.otf
         - asset: fonts/FC Lamoon Regular ver 1.00.otf
+    - family: ZFTERMIN__
+      fonts:
+        - asset: fonts/ZFTERMIN__.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

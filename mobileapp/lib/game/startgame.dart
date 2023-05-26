@@ -13,7 +13,7 @@ class startgame extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => replay()),
-        //ChangeNotifierProvider(create: (context) => PlayerName('yourname')),
+        ChangeNotifierProvider(create: (context) => PlayerName('yourname')),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

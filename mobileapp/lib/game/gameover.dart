@@ -10,93 +10,94 @@ class gameOver extends StatelessWidget {
   final int GameScore;
   gameOver({required this.isOver, required this.GameScore});
 
-  
   @override
   Widget build(BuildContext context) {
     return isOver
         ? MaterialApp(
             debugShowCheckedModeBanner: false,
             home: Scaffold(
-              body: Builder(
-                builder: (context) => Stack(
-                  children: [
-                    Container(
-                        //set background image
-                        width: double.infinity,
-                        height: double.infinity,
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 85, 200, 186)),
-                        child: Transform.translate(
-                          offset: Offset(
-                              0, MediaQuery.of(context).size.height * 0.2),
-                          child: Column(
-                            children: [
-                              Text(
-                                "หมดเวลา!",
-                                style: TextStyle(
-                                    fontFamily: 'FC Lamoon',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 72),
+              body: Container(
+                color: Color.fromARGB(250, 153, 153, 255),
+                child: Transform.translate(
+                  offset: Offset(0, MediaQuery.of(context).size.height * 0.2),
+                  child: Column(children: [
+                    Text(
+                      "จบเกม!",
+                      style: TextStyle(fontFamily: 'ZFTERMIN__', fontSize: 72,color: Colors.white),
+                    ),
+                    Text(
+                      "คะแนนรวม : $GameScore",
+                      style: TextStyle(
+                        fontFamily: 'FC Lamoon',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 42,
+                        color: Color.fromARGB(248, 238, 234, 123),
+                        height: 1,
+                      ),
+                    ),
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Flexible(
+                            flex: 1,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => game()),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                                shape: CircleBorder(),
                               ),
-                              Text(
-                                "คะแนนรวม : $GameScore",
-                                style: TextStyle(
-                                    fontFamily: 'FC Lamoon',
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 42),
-                              ),
-                              SizedBox(height: 150),
-                              Row(
-                                children: [
-                                  SizedBox(width: 90,),
-                                  ElevatedButton(
-                                onPressed: () {
-                                  Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => game()),
-                                  );
-                                },
-                                child: Text(
-                                  "เริ่มใหม่",
-                                  style: TextStyle(
-                                      fontFamily: 'FC Lamoon',
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 22),
+                              child: Container(
+                                width: 85,
+                                height: 325,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Color.fromARGB(250, 153, 153, 255),
                                 ),
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Colors.pink), // change the color here
-                                ),
-                              ),
-                              SizedBox(width: 20),
-                              ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => user()),
-                                    );
-                                  },
-                                  child: Text(
-                                    "กลับหน้าหลัก",
-                                    style: TextStyle(
-                                        fontFamily: 'FC Lamoon',
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 22),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(0),
+                                  child: Image.asset(
+                                    'image/again2.png',
+                                    fit: BoxFit.contain,
                                   ),
-                                  style: ButtonStyle(
-                                    backgroundColor:
-                                        MaterialStateProperty.all<Color>(
-                                            Colors.pink),
-                                  ))
-                                ],
-                              )
-                            ],
+                                ),
+                              ),
+                            ),
                           ),
-                        )),
-                  ],
+                          SizedBox(width: 100),
+                          Flexible(
+                            flex: 1,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => user()),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                                shape: CircleBorder(),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(0),
+                                child: Image.asset(
+                                  'image/backtohome2.png',
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ]),
                 ),
               ),
             ),
