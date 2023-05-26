@@ -8,7 +8,7 @@ import 'package:mobileapp/record/provider/replay.dart';
 import 'package:provider/provider.dart';
 
 class game extends StatefulWidget {
-  const game({super.key});
+  const game({Key? key}) : super(key: key);
 
   @override
   State<game> createState() => _gameState();
@@ -28,9 +28,7 @@ class _gameState extends State<game> {
         });
       } else {
         setState(() {
-          //var proviname = Provider.of<PlayerName>(context, listen: false);
           replayModel newReplay = replayModel(
-            /*proviname.getPlayerName().toString(),*/
             GameScore,
            DateTime.now(),
           );

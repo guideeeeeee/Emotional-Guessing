@@ -77,7 +77,7 @@ class _recordState extends State<record> {
                                   child: FittedBox(
                                     child: Text(replayAll.score.toString()),
                                   )),
-                              title: Text("Guest000"),
+                              title: Text("replayAll.name"),
                               subtitle: Text(replayAll.dateandTime.toString()),
                             ),
                           ); /*Container(

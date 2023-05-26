@@ -20,10 +20,11 @@ class ReplayDB {
 
   Future<int> InsertData(replayModel statement) async {
     var db = await this.openDatabase();
-    var store = intMapStoreFactory.store("expense1");
+    var store = intMapStoreFactory.store("expense3");
 
     //json
     var records = {
+      //"name" : statement.name,
       "score": statement.score,
       "date": statement.dateandTime.toIso8601String()
     };
@@ -36,12 +37,12 @@ class ReplayDB {
 //เก่าไปใหม่ true
   Future<List<replayModel>> loadAllData() async {
     var db = await this.openDatabase();
-    var store = intMapStoreFactory.store("expense1");
+    var store = intMapStoreFactory.store("expense3");
     var records = await store.find(db,
         finder: Finder(sortOrders: [SortOrder(Field.key, false)]));
     List<replayModel> dataReplay = [];
     for (var record in records) {
-      dataReplay.add(replayModel(/*record["name"] as String,*/
+      dataReplay.add(replayModel(//record["name"] as String,
           record["score"] as int, DateTime.parse(record["date"] as String)));
     }
     return dataReplay;
@@ -49,7 +50,7 @@ class ReplayDB {
 
   Future deleteData() async {
     var db = await openDatabase();
-    var store = intMapStoreFactory.store("expense1");
+    var store = intMapStoreFactory.store("expense3");
     await store.delete(db);
     db.close();
   }

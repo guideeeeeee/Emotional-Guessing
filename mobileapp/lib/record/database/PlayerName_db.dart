@@ -18,6 +18,7 @@ class PlayerNameDB {
   }
 
   Future<void> saveName(String name) async {
+    print("message from PlayerName_DB RECEIVED : $name");
   final database = await openDatabase();
   final store = stringMapStoreFactory.store('namestore');
 
