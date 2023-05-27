@@ -26,12 +26,11 @@ void StartCountDown() {
         timeLeft--;
       });
     } else {
-      // var Gamename = context.read<PlayerName>();
-      // var playerNameMap = await Gamename.getPlayerName();
-      // var ThisPlayerName= playerNameMap!['name']as String;
+      var Gamename = context.read<PlayerName>();
+      String? ThisPlayerName = await Gamename.getPlayerName();
       setState(() {
         replayModel newReplay = replayModel(
-          "Name",
+          ThisPlayerName!,
           GameScore,
           DateTime.now(),
         );

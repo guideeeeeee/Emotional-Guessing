@@ -198,9 +198,9 @@ class _EditUserState extends State<EditUser> {
             if (formKey.currentState!.validate()) {
               String userName = nameController.text;
               print('ชื่อผู้ใช้: $userName');
-              // var playerNameProvider =
-              //     Provider.of<PlayerName>(context, listen: false);
-              // playerNameProvider.savePlayerName(userName);
+              var playerNameProvider =
+                  Provider.of<PlayerName>(context, listen: false);
+              playerNameProvider.savePlayerName(userName);
               //add name
               Navigator.pushReplacement(
                 context,

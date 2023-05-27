@@ -33,8 +33,8 @@ class PlayerNameDB {
     final database = await openDatabase();
     final store = stringMapStoreFactory.store('namestore');
 
-    final name = await store.record('name').get(database) as String?;
-
+    final nameData = await store.record('name').get(database);
+    final name = nameData != null ? nameData['name'] as String? : null;
     await database.close();
 
     return name;
