@@ -24,9 +24,9 @@ class ReplayDB {
 
     //json
     var records = {
-      "name" : statement.name,
+      "name": statement.name,
       "score": statement.score,
-      "date": statement.dateandTime.toIso8601String()
+      "date": statement.dateandTime.toIso8601String(),
     };
     var KeyID = await store.add(db, records);
     db.close();
@@ -42,8 +42,11 @@ class ReplayDB {
         finder: Finder(sortOrders: [SortOrder(Field.key, false)]));
     List<replayModel> dataReplay = [];
     for (var record in records) {
-      dataReplay.add(replayModel(record["name"] as String,
-          record["score"] as int, DateTime.parse(record["date"] as String)));
+      dataReplay.add(replayModel(
+          record["name"] as String,
+          record["score"] as int,
+          DateTime.parse(record["date"] as String),
+          ));
     }
     return dataReplay;
   }

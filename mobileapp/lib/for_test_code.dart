@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/game/inGame/levelpage.dart';
 
 class CustomClipPath extends CustomClipper<Path> {
   @override
@@ -191,7 +192,5 @@ class _MainPageState extends State<MainPage> {
 }
 
 void main() {
-  runApp(MaterialApp(
-    home: MainPage(),
-  ));
+  runApp(levelpage());
 }

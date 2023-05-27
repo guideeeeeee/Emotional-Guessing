@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/proflie/PlayerName.dart';
 import 'package:provider/provider.dart';
-import '../record/database/PlayerName_db.dart';
 import '../user.dart';
 
 class CustomClipPath extends CustomClipper<Path> {
@@ -201,12 +200,10 @@ class _EditUserState extends State<EditUser> {
               var playerNameProvider =
                   Provider.of<PlayerName>(context, listen: false);
               playerNameProvider.savePlayerName(userName);
-              //add name
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => user()),
               );
-              //TODO
             }
           },
           child: Icon(Icons.check),

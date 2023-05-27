@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/user.dart';
 import 'package:mobileapp/game/game.dart';
-import 'package:provider/provider.dart';
-import '../record/model/replayModel.dart';
-import '../record/provider/replay.dart';
+
+import 'inGame/levelpage.dart';
 
 class gameOver extends StatelessWidget {
   final bool isOver;
@@ -12,8 +11,7 @@ class gameOver extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return isOver
-        ? MaterialApp(
+    return MaterialApp(
             debugShowCheckedModeBanner: false,
             home: Scaffold(
               body: Container(
@@ -46,7 +44,7 @@ class gameOver extends StatelessWidget {
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => game()),
+                                      builder: (context) => levelpage()),
                                 );
                               },
                               style: ElevatedButton.styleFrom(
@@ -101,7 +99,6 @@ class gameOver extends StatelessWidget {
                 ),
               ),
             ),
-          )
-        : Container();
+          );
   }
 }

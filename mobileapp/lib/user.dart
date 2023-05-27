@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/proflie/PlayerName.dart';
-import 'package:mobileapp/proflie/editname.dart';
 import 'package:mobileapp/proflie/editname2.dart';
 import 'package:mobileapp/record/provider/replay.dart';
 import 'package:mobileapp/record/record.dart';

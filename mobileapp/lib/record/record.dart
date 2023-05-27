@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mobileapp/record/provider/replay.dart';
 import 'package:mobileapp/user.dart';
 import 'package:provider/provider.dart';
-import 'database/replay_db.dart';
 import 'model/replayModel.dart';
 
 class record extends StatefulWidget {
@@ -71,7 +70,7 @@ class _recordState extends State<record> {
                             color: Colors.pink,
                             elevation: 5,
                             margin: const EdgeInsets.symmetric(
-                                vertical: 8, horizontal: 5),
+                                vertical: 3.5, horizontal: 5),
                             child: ListTile(
                               leading: CircleAvatar(
                                   backgroundColor: Colors.white,
