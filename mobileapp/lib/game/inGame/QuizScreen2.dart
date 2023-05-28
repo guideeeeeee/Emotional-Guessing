@@ -7,8 +7,7 @@ import '../gameover.dart';
 import 'qustion2.dart';
 import 'levelpage.dart';
 
-
-bool isActive = true; 
+bool isActive = true;
 
 class QuizScreen2 extends StatefulWidget {
   const QuizScreen2({Key? key}) : super(key: key);
@@ -32,35 +31,31 @@ class _QuizScreen2State extends State<QuizScreen2> {
   int seconds = 0;
   String timeout = '00:00';
 
-
-
-
   @override
   void dispose() {
     isActive = false; // ปิดการทำงานของลูป
     super.dispose();
   }
 
-Stream<String> timer() async* {
-  while (isActive) {
-    await StartTime();
-    yield await getFormattedTime();
-    await Future.delayed(Duration(milliseconds: 500));
-  }
-}
-
-Future<void> StartTime() async {
-  if (isActive) {
-    await Future.delayed(Duration(milliseconds: 500));
-    if (isActive) {
-        Rseconds++;
-        }
-        ;
-
+  Stream<String> timer() async* {
+    while (isActive) {
+      await StartTime();
+      yield await getFormattedTime();
+      await Future.delayed(Duration(milliseconds: 500));
     }
   }
 
-Future<String> getFormattedTime() async {
+  Future<void> StartTime() async {
+    if (isActive) {
+      await Future.delayed(Duration(milliseconds: 500));
+      if (isActive) {
+        Rseconds++;
+      }
+      ;
+    }
+  }
+
+  Future<String> getFormattedTime() async {
     minutes = Rseconds ~/ 60;
     seconds = Rseconds % 60;
     return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
@@ -71,18 +66,18 @@ Future<String> getFormattedTime() async {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            "LEVEL 2",
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
+          automaticallyImplyLeading: false,
+          title: Center(
+            child: Text(
+              "LEVEL 2",
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-        ),
-        backgroundColor: Color.fromARGB(255, 255, 208, 52),
-      ),
+          backgroundColor: Color.fromARGB(255, 145, 210, 255)),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -99,7 +94,7 @@ Future<String> getFormattedTime() async {
           ],
         ),
       ),
-      backgroundColor: Color.fromARGB(255, 242, 230, 208),
+      backgroundColor: Color.fromARGB(255, 255, 255, 181),
     );
   }
 
@@ -113,7 +108,8 @@ Future<String> getFormattedTime() async {
             Text(
               "คำถามที่ ${currentQusetionTndex + 1}/${questionList.length.toString()}",
               style: TextStyle(
-                fontSize: 18,
+                fontFamily: 'FC Lamoon',
+                fontSize: 24,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
@@ -135,7 +131,8 @@ Future<String> getFormattedTime() async {
                               return Text(
                                 "เวลา: " + text,
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontFamily: 'FC Lamoon',
+                                  fontSize: 24,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -143,7 +140,7 @@ Future<String> getFormattedTime() async {
                             })),
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.all(10.0),
-                      primary: Color.fromARGB(255, 248, 204, 93),
+                      primary: Color.fromARGB(255, 255, 0, 153),
                       onPrimary: Colors.black,
                       shadowColor: Color.fromARGB(255, 255, 166, 22),
                     ),
@@ -225,7 +222,7 @@ Future<String> getFormattedTime() async {
             padding: EdgeInsets.all(20.0),
             fixedSize: Size(130, 130),
             primary:
-                isSelected ? Color.fromARGB(255, 255, 214, 100) : Colors.white,
+                isSelected ? Color.fromARGB(255, 167, 218, 255) : Colors.white,
             onPrimary: isSelected ? Colors.white : Colors.black,
             shadowColor: Color.fromARGB(255, 244, 174, 54),
           ),
@@ -250,10 +247,7 @@ Future<String> getFormattedTime() async {
 
             // Create new replay model
             replayModel newReplay = replayModel(
-              thisPlayerName!,
-              score,
-              DateTime.now(),"LVL 2",Rseconds
-            );
+                thisPlayerName!, score, DateTime.now(), "LVL 2", Rseconds);
 
             // Add replay to provider
             var replayProvider = context.read<replay>();
@@ -298,7 +292,8 @@ Future<String> getFormattedTime() async {
         child: Text(
           isLastQuestion ? "ยืนยัน" : "ถัดไป",
           style: TextStyle(
-            fontSize: 20,
+            fontFamily: 'FC Lamoon',
+            fontSize: 24,
             color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
@@ -306,7 +301,7 @@ Future<String> getFormattedTime() async {
         style: ElevatedButton.styleFrom(
           padding: EdgeInsets.all(2.0),
           fixedSize: Size(100, 27),
-          primary: Color.fromARGB(255, 255, 154, 72),
+          primary: Color.fromARGB(255, 255, 0, 153),
           shadowColor: Colors.red,
         ),
       ),

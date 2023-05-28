@@ -14,18 +14,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers:[ChangeNotifierProvider<replay>(
-        create: (context) => replay()),
-        ChangeNotifierProvider(create: (context) => PlayerName('yourname')),], 
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: const Splash(),
+      providers: [
+        ChangeNotifierProvider<replay>(create: (context) => replay()),
+        ChangeNotifierProvider(create: (context) => PlayerName('yourname')),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
         ),
-      );
+        home: const Splash(),
+      ),
+    );
   }
 }
 
@@ -43,7 +44,7 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     final backgroundColor =
-        isDarkMode ? Color.fromARGB(255, 174, 242, 252) : Colors.white;
+        isDarkMode ? Color.fromARGB(255, 145, 210, 255) : Colors.white;
     Offset distance = isPressed ? const Offset(10, 10) : const Offset(28, 28);
     double blur = isPressed ? 5.0 : 30.0;
 
@@ -69,7 +70,7 @@ class _SplashState extends State<Splash> {
                         blurRadius: blur,
                         offset: -distance,
                         color: isDarkMode
-                            ? Color.fromARGB(255, 199, 246, 253)
+                            ? Color.fromARGB(142, 207, 255, 250)
                             : Colors.transparent,
                         spreadRadius: isPressed ? 5 : -10,
                       ),
@@ -96,7 +97,7 @@ class _SplashState extends State<Splash> {
                               'ข้อแนะนำ\n\n1.กำหนดเวลาเล่น: กำหนดเวลาเล่นเกมเพื่อป้องกันการใช้เวลาเกินไปและให้เด็กมีเวลาที่เหลือในวันสำหรับกิจกรรมอื่นๆ\n\n2.ติดตามและสนับสนุน: สนับสนุนและสนใจในการเล่นเกมของเด็ก สอบถามเกี่ยวกับประสบการณ์ในเกมและเรียนรู้เกี่ยวกับทักษะที่พัฒนาขึ้นจากการเล่น\n\n3.ติดต่อผู้เชี่ยวชาญ: พูดคุยกับผู้เชี่ยวชาญเพื่อขอคำปรึกษาเพิ่มเติมเกี่ยวกับการเล่นเกมทายอารมณ์ในเด็กออทิสติกเทียม\n\nควรใช้ข้อแนะนำเหล่านี้เป็นแนวทางเพื่อดูแลและ\nกำกับการเล่นเกมของเด็กออทิสติกเทียมอย่างเหมาะสม\nแต่คุณควรพิจารณาตามสภาพความพร้อมและความต้องการ\nของเด็กเนื่องจากทุกเด็กออทิสติกเทียมอาจมีความแตกต่างกันไป\n\n',
                               style: TextStyle(
                                 fontFamily: 'FC Lamoon',
-                                fontSize: 20,
+                                fontSize: 20.5,
                                 fontWeight: FontWeight.bold,
                                 color: isDarkMode
                                     ? Color.fromARGB(255, 18, 17, 17)
@@ -116,13 +117,22 @@ class _SplashState extends State<Splash> {
                           child: ElevatedButton(
                             onPressed: () {
                               Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => user()),
-                            );
+                                context,
+                                MaterialPageRoute(builder: (context) => user()),
+                              );
                             },
-                            child: Text('ตกลง',style: TextStyle(
-                                fontFamily: 'FC Lamoon',fontSize: 20)) ,
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Color.fromARGB(255, 255, 0, 153)), // กำหนดสีเป็นสีชมพู
+                            ),
+                            child: Text(
+                              'ตกลง',
+                              style: TextStyle(
+                                fontFamily: 'FC Lamoon',
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24,
+                              ),
+                            ),
                           ),
                         ),
                       ),

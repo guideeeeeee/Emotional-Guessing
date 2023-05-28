@@ -32,7 +32,7 @@ class _userState extends State<user> {
                   width: double.infinity,
                   height: double.infinity,
                   decoration:
-                      BoxDecoration(color: Color.fromARGB(255, 174, 242, 252)),
+                      BoxDecoration(color: Color.fromARGB(255, 145, 209, 255)),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -56,11 +56,11 @@ class _userState extends State<user> {
                             style: TextStyle(
                                 fontFamily: 'FC Lamoon',
                                 fontWeight: FontWeight.bold,
-                                fontSize: 22),
+                                fontSize: 24),
                           ),
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all<Color>(
-                                Colors.pink), // change the color here
+                                Color.fromARGB(255, 255, 0, 153)), // change the color here
                           ),
                         ),
                         SizedBox(height: 16),
@@ -77,11 +77,11 @@ class _userState extends State<user> {
                               style: TextStyle(
                                   fontFamily: 'FC Lamoon',
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 22),
+                                  fontSize: 24),
                             ),
                             style: ButtonStyle(
                               backgroundColor:
-                                  MaterialStateProperty.all<Color>(Colors.pink),
+                                  MaterialStateProperty.all<Color>(Color.fromARGB(255, 255, 0, 153)),
                             ))
                       ],
                     ),

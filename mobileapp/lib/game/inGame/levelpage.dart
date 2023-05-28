@@ -29,7 +29,7 @@ class _MyWidgetState extends State<MyWidget> {
       appBar: AppBar(
         title: Center(
           child: Text(
-            "EMOTION GAME",
+            "EMOTIONAL GUESSING",
             style: TextStyle(
               fontSize: 20,
               color: Colors.white,
@@ -37,7 +37,7 @@ class _MyWidgetState extends State<MyWidget> {
             ),
           ),
         ),
-        backgroundColor: Color.fromARGB(255, 94, 196, 205),
+        backgroundColor: Color.fromARGB(255, 255, 0, 153),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -59,7 +59,7 @@ class _MyWidgetState extends State<MyWidget> {
                   padding: EdgeInsets.all(20.0),
                   textStyle:
                       TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                  primary: Color.fromARGB(255, 255, 120, 120),
+                  primary: Color.fromARGB(255, 156, 155, 235),
                   shadowColor: Colors.black,
                   fixedSize: Size(400, 100),
                 ),
@@ -79,7 +79,7 @@ class _MyWidgetState extends State<MyWidget> {
                   padding: EdgeInsets.all(20.0),
                   textStyle:
                       TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                  primary: Color.fromARGB(255, 255, 208, 52),
+                  primary: Color.fromARGB(255, 145, 210, 255),
                   shadowColor: Colors.black,
                   fixedSize: Size(400, 100),
                 ),
@@ -99,7 +99,7 @@ class _MyWidgetState extends State<MyWidget> {
                   padding: EdgeInsets.all(20.0),
                   textStyle:
                       TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                  primary: Color.fromARGB(255, 82, 110, 255),
+                  primary: Color.fromARGB(255, 121, 218, 199),
                   shadowColor: Colors.black,
                   fixedSize: Size(400, 100),
                 ),
@@ -108,7 +108,7 @@ class _MyWidgetState extends State<MyWidget> {
           ),
         ),
       ),
-      backgroundColor: Color.fromARGB(255, 255, 245, 183),
+      backgroundColor: Color.fromARGB(255, 255, 255, 181),
     );
   }
 }

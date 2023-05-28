@@ -70,6 +70,7 @@ Future<String> getFormattedTime() async {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Center(
           child: Text(
             "LEVEL 3",
@@ -80,7 +81,7 @@ Future<String> getFormattedTime() async {
             ),
           ),
         ),
-        backgroundColor: Color.fromARGB(255, 82, 110, 255),
+        backgroundColor: Color.fromARGB(255, 121, 218, 199),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -98,7 +99,7 @@ Future<String> getFormattedTime() async {
           ],
         ),
       ),
-      backgroundColor: Color.fromARGB(255, 208, 235, 242),
+      backgroundColor: Color.fromARGB(255, 255, 255, 181),
     );
   }
 
@@ -112,7 +113,8 @@ Future<String> getFormattedTime() async {
             Text(
               "คำถามที่ ${currentQusetionTndex + 1}/${questionList.length.toString()}",
               style: TextStyle(
-                fontSize: 18,
+                fontFamily: 'FC Lamoon',
+                fontSize: 24,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
@@ -134,7 +136,8 @@ Future<String> getFormattedTime() async {
                               return Text(
                                 "เวลา: " + text,
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontFamily: 'FC Lamoon',
+                                  fontSize: 24,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -142,7 +145,7 @@ Future<String> getFormattedTime() async {
                             })),
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.all(10.0),
-                      primary: Color.fromARGB(255, 113, 154, 250),
+                      primary: Color.fromARGB(255, 255, 0, 153),
                       onPrimary: Colors.black,
                       shadowColor: Color.fromARGB(255, 43, 18, 236),
                     ),
@@ -224,7 +227,7 @@ Future<String> getFormattedTime() async {
             padding: EdgeInsets.all(20.0),
             fixedSize: Size(130, 130),
             primary:
-                isSelected ? Color.fromARGB(255, 149, 161, 255) : Colors.white,
+                isSelected ? Color.fromARGB(255, 187, 255, 241) : Colors.white,
             onPrimary: isSelected ? Colors.white : Colors.black,
             shadowColor: Color.fromARGB(255, 79, 54, 244),
           ),
@@ -296,7 +299,8 @@ Future<String> getFormattedTime() async {
         child: Text(
           isLastQuestion ? "ยืนยัน" : "ถัดไป",
           style: TextStyle(
-            fontSize: 20,
+            fontFamily: 'FC Lamoon',
+            fontSize: 24,
             color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
@@ -304,7 +308,7 @@ Future<String> getFormattedTime() async {
         style: ElevatedButton.styleFrom(
           padding: EdgeInsets.all(2.0),
           fixedSize: Size(100, 27),
-          primary: Color.fromARGB(255, 80, 127, 255),
+          primary: Color.fromARGB(255, 255, 0, 153),
           shadowColor: Color.fromARGB(255, 86, 54, 244),
         ),
       ),

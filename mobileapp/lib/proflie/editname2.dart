@@ -46,7 +46,7 @@ class _EditUserState extends State<EditUser> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Color.fromARGB(255, 174, 242, 252),
+        backgroundColor: Color.fromARGB(255, 196, 155, 235),
         body: Stack(
           children: [
             Positioned(
@@ -58,7 +58,7 @@ class _EditUserState extends State<EditUser> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
-                    color: Color.fromARGB(255, 85, 200, 186),
+                    color: Color.fromARGB(255, 145, 210, 255),
                     boxShadow: [
                       BoxShadow(
                         color: Color.fromARGB(255, 115, 122, 124),
@@ -73,7 +73,7 @@ class _EditUserState extends State<EditUser> {
                       fontFamily: 'FC Lamoon',
                       fontSize: 48,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(246, 56, 113, 199),
+                      color: Colors.black,
                     ),
                   ),
                 ),
@@ -96,10 +96,10 @@ class _EditUserState extends State<EditUser> {
                       height: 200,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Color.fromRGBO(81, 188, 173, 0.965),
+                        color: Color.fromRGBO(255, 241, 194, 42),
                         boxShadow: [
                           BoxShadow(
-                            color: Color.fromARGB(255, 115, 122, 124),
+                            color: Color.fromARGB(255, 241, 194, 42),
                             blurRadius: 15,
                             offset: Offset(0, 3),
                           ),
@@ -186,6 +186,7 @@ class _EditUserState extends State<EditUser> {
                     MaterialPageRoute(builder: (context) => user()),
                   );
                 },
+                backgroundColor: Color.fromARGB(255, 255, 0, 153),
                 child: Icon(Icons.close),
               ),
             ),
@@ -206,6 +207,7 @@ class _EditUserState extends State<EditUser> {
               );
             }
           },
+          backgroundColor: Color.fromARGB(255, 255, 0, 153),
           child: Icon(Icons.check),
         ),
       ),

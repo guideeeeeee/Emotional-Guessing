@@ -30,7 +30,7 @@ class _recordState extends State<record> {
               width: double.infinity,
               height: double.infinity,
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 174, 242, 252),
+                color: Color.fromARGB(255, 145, 210, 255),
               ),
             ),
             Column(
@@ -72,7 +72,7 @@ class _recordState extends State<record> {
                           String timeused =
                               '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
                           return Card(
-                            color: Colors.pink,
+                            color: Color.fromARGB(255, 255, 255, 181),
                             elevation: 5,
                             margin: const EdgeInsets.symmetric(
                                 vertical: 3.5, horizontal: 5),
@@ -86,14 +86,14 @@ class _recordState extends State<record> {
                                     ),
                                   )),
                               title: Text(replayAll.name,
-                                  style: TextStyle(color: Colors.white)),
+                                  style: TextStyle(color: Colors.black)),
                               subtitle: Text(replayAll.dateandTime.toString(),
-                                  style: TextStyle(color: Colors.white)),
+                                  style: TextStyle(color: Colors.black)),
                               trailing: Text(
                                   replayAll.level +
                                       "\nใช้เวลา " +
                                       timeused,
-                                  style: TextStyle(color: Colors.white)),
+                                  style: TextStyle(color: Colors.black)),
                             ),
                           );
                         });
@@ -104,7 +104,7 @@ class _recordState extends State<record> {
                   child: Row(
                     children: [
                       SizedBox(
-                        width: 50,
+                        width: 60,
                       ),
                       ElevatedButton(
                           onPressed: () {
@@ -118,14 +118,14 @@ class _recordState extends State<record> {
                             style: TextStyle(
                                 fontFamily: 'FC Lamoon',
                                 fontWeight: FontWeight.bold,
-                                fontSize: 22),
+                                fontSize: 24),
                           ),
                           style: ButtonStyle(
                             backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.pink),
+                                MaterialStateProperty.all<Color>(Color.fromARGB(255, 255, 0, 153)),
                           )),
                       SizedBox(
-                        width: 60,
+                        width: 40,
                       ),
                       ElevatedButton(
                           onPressed: () {
@@ -163,11 +163,11 @@ class _recordState extends State<record> {
                             style: TextStyle(
                                 fontFamily: 'FC Lamoon',
                                 fontWeight: FontWeight.bold,
-                                fontSize: 22),
+                                fontSize: 24),
                           ),
                           style: ButtonStyle(
                             backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.pink),
+                                MaterialStateProperty.all<Color>(Color.fromARGB(255, 255, 0, 153)),
                           )),
                     ],
                   ),
