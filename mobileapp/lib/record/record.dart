@@ -16,6 +16,7 @@ class _recordState extends State<record> {
     super.initState();
     Provider.of<replay>(context, listen: false).initData();
   }
+
   @override
   Widget build(BuildContext context) {
     final replayProvider = Provider.of<replay>(context);
@@ -66,6 +67,10 @@ class _recordState extends State<record> {
                         itemCount: count,
                         itemBuilder: (context, int index) {
                           replayModel replayAll = replayProvider.replays[index];
+                          int minutes = replayAll.TimeUsed ~/ 60;
+                          int seconds = replayAll.TimeUsed % 60;
+                          String timeused =
+                              '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
                           return Card(
                             color: Colors.pink,
                             elevation: 5,
@@ -75,12 +80,22 @@ class _recordState extends State<record> {
                               leading: CircleAvatar(
                                   backgroundColor: Colors.white,
                                   child: FittedBox(
-                                    child: Text(replayAll.score.toString(),style: TextStyle(color: Colors.black),),
+                                    child: Text(
+                                      replayAll.score.toString(),
+                                      style: TextStyle(color: Colors.black),
+                                    ),
                                   )),
-                              title: Text(replayAll.name,style: TextStyle(color: Colors.white)),
-                              subtitle: Text(replayAll.dateandTime.toString(),style: TextStyle(color: Colors.white)),
+                              title: Text(replayAll.name,
+                                  style: TextStyle(color: Colors.white)),
+                              subtitle: Text(replayAll.dateandTime.toString(),
+                                  style: TextStyle(color: Colors.white)),
+                              trailing: Text(
+                                  replayAll.level +
+                                      "\nใช้เวลา " +
+                                      timeused,
+                                  style: TextStyle(color: Colors.white)),
                             ),
-                          ); 
+                          );
                         });
                   }
                 })),
@@ -131,7 +146,9 @@ class _recordState extends State<record> {
                                     ),
                                     TextButton(
                                       onPressed: () async {
-                                        Provider.of<replay>(context, listen: false).deletedata();
+                                        Provider.of<replay>(context,
+                                                listen: false)
+                                            .deletedata();
                                         Navigator.pop(context);
                                       },
                                       child: Text("ตกลง"),

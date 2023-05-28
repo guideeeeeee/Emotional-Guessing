@@ -27,6 +27,8 @@ class ReplayDB {
       "name": statement.name,
       "score": statement.score,
       "date": statement.dateandTime.toIso8601String(),
+      "level": statement.level,
+      "timeused": statement.TimeUsed,
     };
     var KeyID = await store.add(db, records);
     db.close();
@@ -43,10 +45,12 @@ class ReplayDB {
     List<replayModel> dataReplay = [];
     for (var record in records) {
       dataReplay.add(replayModel(
-          record["name"] as String,
-          record["score"] as int,
-          DateTime.parse(record["date"] as String),
-          ));
+        record["name"] as String,
+        record["score"] as int,
+        DateTime.parse(record["date"] as String),
+        record["level"] as String,
+        record["timeused"] as int,
+      ));
     }
     return dataReplay;
   }

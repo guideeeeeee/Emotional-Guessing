@@ -251,7 +251,7 @@ Future<String> getFormattedTime() async {
             replayModel newReplay = replayModel(
               thisPlayerName!,
               score,
-              DateTime.now(), 
+              DateTime.now(),"LVL 3",Rseconds
             );
 
             // Add replay to provider

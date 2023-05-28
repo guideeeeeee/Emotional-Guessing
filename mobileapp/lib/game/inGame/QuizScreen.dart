@@ -245,17 +245,14 @@ Future<String> getFormattedTime() async {
           if (isLastQuestion) {
             isActive = false;
 
-            //new Score cal
-    
             // Get player name from provider
             var playerName = context.read<PlayerName>();
             String? thisPlayerName = await playerName.getPlayerName();
-
             // Create new replay model
             replayModel newReplay = replayModel(
               thisPlayerName!,
               score,
-              DateTime.now(),
+              DateTime.now(),"LVL 1",Rseconds
             );
 
             // Add replay to provider
