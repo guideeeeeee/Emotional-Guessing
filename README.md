@@ -28,16 +28,6 @@ The primary objective of the Emotional Guessing app is to help children with ASD
 
 ---
 
-## **Project Structure**
-### **Key Files:**
-- **AndroidManifest.xml:** Configures the Android application environment, activity launch modes, and app metadata.
-- **.gitignore:** Specifies files and directories to be ignored by version control.
-- **pubspec.yaml:** Contains project dependencies and configurations.
-
-### **Flutter Configuration:**
-- Configurations for Android and other platforms are tracked and managed using migration revisions.
-
----
 
 ## **How to Run the Application**
 1. **Clone the Repository:**
